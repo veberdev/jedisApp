@@ -7,6 +7,6 @@ FactoryBot.define do
     logradouro { "Joao da esquina" }
     complemento { "casa" }
     codigo_ibge { "1111111" }
-    municipe { nil }
+    municipe
   end
 end
