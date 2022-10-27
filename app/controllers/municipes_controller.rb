@@ -1,4 +1,5 @@
 class MunicipesController < ApplicationController
+  before_action :definir_municipe, only: [:show, :edit, :update]
 
   def index
     if params_de_busca.present?
@@ -24,6 +25,19 @@ class MunicipesController < ApplicationController
       end
   end
   
+  def edit
+  end
+
+  def update
+    if @municipe.save
+      MunicipeMailer.with(municipe: @municipe).boasVindas.deliver_now #user deliver_later para criar job
+      Sms.new(@municipe).mensagemUpdate #user jobs aqui para otimizar o processo
+      redirect_to root_path, notice: "Municipe criado com sucesso!"
+    else
+      render :new
+    end
+  end
+
   private
 
   def municipe_params
@@ -38,5 +52,8 @@ class MunicipesController < ApplicationController
   def params_de_busca
     params.permit(:campo, :valor)
   end
-
+  
+  def definir_municipe
+    @municipe = Municipe.find(params[:id])
+  end
 end

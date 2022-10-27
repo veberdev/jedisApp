@@ -6,7 +6,7 @@
     cns: Faker::Number.number(digits: 15).to_s, 
     email: Faker::Internet.safe_email, 
     data_nascimento: "01/01/1990",
-    telefone: ["+55419"].push(Faker::Number.number(digits: 8).to_s).join
+    telefone: ["+5541997"].push(Faker::Number.number(digits: 6).to_s).join
   )
   municipe.foto.attach(io: File.open("app/assets/images/image.png"), filename: 'image.png', content_type: 'image/png')
   municipe.save

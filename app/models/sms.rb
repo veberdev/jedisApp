@@ -25,7 +25,7 @@ class Sms
   
     message = client.messages.create(
       from: ENV['TWILIO_PHONE_NUMBER'],
-      to: @municipe.telefone,
+      to: ENV['TO_PHONE_NUMBER'], #@municipe.telefone caso esteja com o servico pago
       body: body
     )
   end
