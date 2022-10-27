@@ -13,6 +13,7 @@ class Municipe < ApplicationRecord
   enum status: {ativo: 0, inativo: 1}
 
   has_one_attached :foto
+  has_one :endereco
   
   def cpf_valid?(cpf)
     puts cpf
