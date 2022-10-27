@@ -1,0 +1,82 @@
+<% if @municipe.errors.any? %>
+<% @municipe.errors.full_messages.each do |error_message| %>
+-<%=  error_message.split("Endereco ")[-1]   %> <br />
+<% end %>
+<% end %>
+
+<div data-controller="municipe" class="row mt-4"> 
+<%= form_with model: @municipe, local: true, data: { turbo: false } do |form| %>
+  <div class="row">
+    <div class="form-group col-12 ">
+      <%= form.label "Status" %>
+
+      <%= form.select "status", options_for_select([["ativo"], ["inativo"]]), {}, {class: 'dropdown btn btn-outline-primary w-100'} %>
+    </div>
+    <div class="form-group col-12 col-lg-4">
+      <%= form.label :primeiro_nome %>
+      <%= form.text_field :primeiro_nome, class: "form-control", placeholder: "João" %>
+    </div>
+    <div class="form-group col-12 col-lg-8">
+      <%= form.label :sobrenome %>
+      <%= form.text_field :sobrenome, class: "form-control disabled", placeholder: "Pedro da Silva" %>
+    </div>
+    <div class="mb-3 col-12 col-lg-2">
+      <%= form.label :data_nascimento %>
+      <%= form.text_field :data_nascimento, class: "form-control ", placeholder: "11/30/2022", 'data-municipe-target':'dateField' %>
+    </div>
+    <div class="mb-3 col-12 col-lg-5">
+      <%= form.label :cpf %>
+      <%= form.text_field :cpf, class: "form-control", placeholder: "000.000.000-00" %>
+    </div>
+    <div class="mb-3 col-12 col-lg-5">
+      <%= form.label :cns %>
+      <%= form.text_field :cns, class: "form-control", placeholder: "162635415780018" %>
+    </div>
+
+    <div class="mb-3 col-12 col-lg-6">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control", placeholder: "exemplo@exemplo.com" %>
+    </div>
+
+    <div class="mb-3 col-12 col-lg-3">
+      <%= form.label :telefone %>
+      <%= form.text_field :telefone, class: "form-control", placeholder: "5541999999999" %>
+    </div>
+          <div class="mb-3 col-12 col-lg-3">
+      <%= form.label :foto %>
+      <%= form.file_field :foto, class: "form-control", placeholder: "exemplo@exemplo.com" %>
+    </div>
+
+    <%= form.fields_for :endereco do |nestedForm|%>
+      <div class="mb-3 col-12 col-lg-4">
+        <%= nestedForm.label :cep %>
+        <%= nestedForm.text_field :cep, class: "form-control", placeholder: "81110000" %>
+      </div>
+      <div class="mb-3 col-12 col-lg-4">
+        <%= nestedForm.label :uf %>
+        <%= nestedForm.text_field :uf, class: "form-control", placeholder: "Paraná" %>
+      </div>
+      <div class="mb-3 col-12 col-lg-4">
+        <%= nestedForm.label :bairro %>
+        <%= nestedForm.text_field :bairro, class: "form-control", placeholder: "Centro" %>
+      </div>
+      <div class="mb-3 col-12">
+        <%= nestedForm.label :logradouro %>
+        <%= nestedForm.text_field :logradouro, class: "form-control", placeholder: "Rua joao da esquina" %>
+      </div>
+      <div class="mb-3 col-12 col-lg-6">
+        <%= nestedForm.label :complemento %>
+        <%= nestedForm.text_field :complemento, class: "form-control", placeholder: "perto da praça" %>
+      </div>
+      <div class="mb-3 col-12 col-lg-6">
+        <%= nestedForm.label :codigo_ibge %>
+        <%= nestedForm.text_field :codigo_ibge, class: "form-control", placeholder: "4106902" %>
+      </div>
+    <% end %>
+    <div class="mb-3 text-center">
+      <%= form.submit "Criar municipe", class: "btn btn-primary w-100" %>
+    </div>
+  </div>
+
+<% end %>
+</div>

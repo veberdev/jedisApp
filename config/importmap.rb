@@ -5,3 +5,4 @@ pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
 pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin "vanillajs-datepicker", to: "https://ga.jspm.io/npm:vanillajs-datepicker@1.2.0/js/main.js"
