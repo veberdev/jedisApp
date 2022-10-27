@@ -16,6 +16,7 @@ class MunicipesController < ApplicationController
   def create
     @municipe = Municipe.new(municipe_params)
       if @municipe.save
+        MunicipeMailer.with(municipe: @municipe).boasVindas.deliver_now #user deliver_later para criar job
         Sms.new(@municipe).mensagemBoasVindas #user jobs aqui para otimizar o processo
         redirect_to root_path, notice: "Municipe criado com sucesso!"
       else
