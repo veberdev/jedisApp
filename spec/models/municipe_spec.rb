@@ -123,4 +123,10 @@ RSpec.describe Municipe, type: :model do
 
     expect(municipe).to be_valid
   end
+
+  it "invalido sem foto" do
+    municipe.foto = nil
+
+    expect(municipe).to_not be_valid
+  end
 end
