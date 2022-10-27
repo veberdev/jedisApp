@@ -16,6 +16,7 @@ class MunicipesController < ApplicationController
   def create
     @municipe = Municipe.new(municipe_params)
       if @municipe.save
+        Sms.new(@municipe).mensagemBoasVindas #user jobs aqui para otimizar o processo
         redirect_to root_path, notice: "Municipe criado com sucesso!"
       else
         render :new
