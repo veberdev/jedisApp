@@ -1,4 +1,5 @@
 class Municipe < ApplicationRecord
+  paginates_per 10
 
   validates :status, presence: true
   validates :primeiro_nome, presence: true

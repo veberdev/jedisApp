@@ -1,7 +1,7 @@
 class MunicipesController < ApplicationController
 
   def index
-    @municipes = Municipe.all
+    @municipes = Municipe.order(:created_at).page(params[:page])
   end
   
 end
