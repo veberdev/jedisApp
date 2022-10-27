@@ -32,9 +32,9 @@ class MunicipesController < ApplicationController
     if @municipe.save
       MunicipeMailer.with(municipe: @municipe).boasVindas.deliver_now #user deliver_later para criar job
       Sms.new(@municipe).mensagemUpdate #user jobs aqui para otimizar o processo
-      redirect_to root_path, notice: "Municipe criado com sucesso!"
+      redirect_to root_path, notice: "Municipe editado com sucesso!"
     else
-      render :new
+      render :edit
     end
   end
 
