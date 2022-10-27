@@ -1,5 +1,6 @@
 class Municipe < ApplicationRecord
   paginates_per 10
+  CAMPOS = ["status", "primeiro_nome", "sobrenome", "cpf", "cns", "email", "data_nascimento", "telefone"]
 
   validates :status, presence: true
   validates :primeiro_nome, presence: true
@@ -15,6 +16,10 @@ class Municipe < ApplicationRecord
 
   has_one_attached :foto
   has_one :endereco
+
+  scope :filtro, -> (campo, valor) do
+    self.where(self.arel_table[campo].matches("%#{valor}%"))
+  end
   
   def cpf_valid?(cpf)
     puts cpf

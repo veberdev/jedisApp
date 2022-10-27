@@ -1,0 +1,15 @@
+<div class="mt-5 mb-3">
+  <%= form_with path: municipes_path, method: :GET do |search| %>
+    <div class='row'>
+      <div class='col-4'>
+        <%= search.select "campo", options_for_select(Municipe::CAMPOS, "primeiro_nome"), {}, {class: 'dropdown btn btn-outline-primary w-100'} %>
+      </div>
+      <div class='col-4'>
+        <%= search.text_field :valor, class: 'form-control' %>
+      </div>
+      <div class='col-4'>
+        <%= search.submit "Buscar", class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
