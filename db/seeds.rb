@@ -1,4 +1,4 @@
-10.times do |municipe|
+30.times do |municipe|
   municipe = Municipe.new(
     primeiro_nome: Faker::Name.name,
     sobrenome: Faker::Name.name, 
