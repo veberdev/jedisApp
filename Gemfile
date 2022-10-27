@@ -6,9 +6,9 @@ gem "bootsnap", require: false
 gem 'bootstrap5-kaminari-views'
 gem "cpf_cnpj"
 gem "dotenv-rails"
-gem "kaminari"
 gem "importmap-rails"
 gem "jbuilder"
+gem "kaminari"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
@@ -22,6 +22,8 @@ gem 'twilio-ruby'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "factory_bot_rails"
+  gem "faker"
   gem 'pry-rails'
   gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
 end
