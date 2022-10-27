@@ -1,7 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+10.times do |municipe|
+  municipe = Municipe.new(
+    primeiro_nome: Faker::Name.name,
+    sobrenome: Faker::Name.name, 
+    cpf: FFaker::IdentificationBR.cpf, 
+    cns: Faker::Number.number(digits: 15).to_s, 
+    email: Faker::Internet.safe_email, 
+    data_nascimento: "01/01/1990",
+    telefone: [55419].push(Faker::Number.number(digits: 8).to_s).join
+  )
+  municipe.foto.attach(io: File.open("app/assets/images/image.png"), filename: 'image.png', content_type: 'image/png')
+  municipe.save
+
+  endereco = Endereco.new(
+    cep: FFaker::AddressBR.zip_code,
+    uf: FFaker::AddressBR.state_abbr,
+    cidade: FFaker::AddressBR.city,
+    bairro: FFaker::AddressBR.neighborhood,
+    logradouro: FFaker::AddressBR.street,
+    complemento: ["casa", "apartamento", ""].sample,
+    codigo_ibge: "4106902",
+    municipe: municipe
+  )
+  endereco.save
+end
