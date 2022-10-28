@@ -119,7 +119,7 @@ RSpec.describe Municipe, type: :model do
   end
 
   it "valido telefone formato sem o +" do
-    municipe.telefone = "5541912345678"
+    municipe.telefone = "+5541912345678"
 
     expect(municipe).to be_valid
   end

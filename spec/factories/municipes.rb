@@ -7,7 +7,7 @@ FactoryBot.define do
     cns { 15.times.map{rand(10)}.join }
     data_nascimento { "01/01/1990" }
     email { Faker::Internet.safe_email }
-    telefone { [55419].push(8.times.map{rand(10)}).join }
+    telefone { ["+5541997"].push(Faker::Number.number(digits: 6).to_s).join }
     foto {}
 
     after(:build) do |municipe|
