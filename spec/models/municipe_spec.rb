@@ -9,6 +9,7 @@ RSpec.describe Municipe, type: :model do
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:data_nascimento) }
   it { should validate_presence_of(:telefone) }
+  it { should validate_length_of(:cns).is_equal_to(15)}
 
   let(:municipe) { build(:municipe) }
 
