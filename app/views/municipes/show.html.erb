@@ -1,0 +1,98 @@
+<h1 class="w-100 text-center mt-5">Cadastro do(a) <u><%= @municipe.primeiro_nome%></u></h1>
+
+<div class="row mt-4"> 
+    <div class="col-12 col-lg-3 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >Status:</span>
+        <span type="text" class="form-control"><%= @municipe.status%></span>
+      </div>
+    </div> 
+    <div class="col-12 col-lg-4 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >Nome:</span>
+        <span type="text" class="form-control"><%= @municipe.primeiro_nome%></span>
+      </div>
+    </div>  
+    <div class="col-12 col-lg-5 mt-3">
+      <div class="input-group">
+        <span class="input-group-text">Sobrenome:</span>
+        <span type="text" class="form-control"><%= @municipe.sobrenome%></span>
+      </div>
+    </div> 
+    <div class="col-12 col-lg-4 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >Data nascimento:</span>
+        <span type="text" class="form-control"><%= @municipe.data_nascimento%></span>
+      </div>
+    </div>  
+    <div class="col-12 col-lg-4 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >CPF:</span>
+        <span type="text" class="form-control"><%= @municipe.cpf%></span>
+      </div>
+    </div>  
+    <div class="col-12 col-lg-4 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >CNS:</span>
+        <span type="text" class="form-control"><%= @municipe.cns%></span>
+      </div>
+    </div>    
+    <div class="col-12 col-lg-4 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >Email:</span>
+        <span type="text" class="form-control"><%= @municipe.email%></span>
+      </div>
+    </div>  
+    <div class="col-12 col-lg-4 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >Telefone:</span>
+        <span type="text" class="form-control"><%= @municipe.telefone%></span>
+      </div>
+    </div>  
+    <div class="col-12 col-lg-4 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >CEP:</span>
+        <span type="text" class="form-control"><%= @municipe.endereco.cep%></span>
+      </div>
+    </div>   
+    <div class="col-12 col-lg-2 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >UF:</span>
+        <span type="text" class="form-control"><%= @municipe.endereco.uf%></span>
+      </div>
+    </div>  
+    <div class="col-12 col-lg-5 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >Cidade:</span>
+        <span type="text" class="form-control"><%= @municipe.endereco.cidade%></span>
+      </div>
+    </div>  
+    <div class="col-12 col-lg-5 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >Bairro:</span>
+        <span type="text" class="form-control"><%= @municipe.endereco.bairro%></span>
+      </div>
+    </div>  
+    <div class="col-12 mt-3">
+      <div class="input-group">
+        <span class="input-group-text" >Logradouro:</span>
+        <span type="text" class="form-control"><%= @municipe.endereco.logradouro%></span>
+      </div>
+    </div> 
+    <% if @municipe.endereco.complemento.present? %>
+      <div class="col-12 col-lg-6 mt-3">
+        <div class="input-group">
+          <span class="input-group-text" >Complemento:</span>
+          <span type="text" class="form-control"><%= @municipe.endereco.complemento%></span>
+        </div>
+      </div> 
+    <% end %>
+    <% if @municipe.endereco.codigo_ibge.present? %>
+      <div class="col-12 col-lg-6 mt-3">
+        <div class="input-group">
+          <span class="input-group-text" >Codigo IBGE:</span>
+          <span type="text" class="form-control"><%= @municipe.endereco.codigo_ibge%></span>
+        </div>
+      </div> 
+    <% end%>
+</div>
